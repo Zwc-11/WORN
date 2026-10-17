@@ -1,8 +1,9 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { MIN_CASES_FOR_WEAR, compareEnabled, type DataSource, type Product, type Region } from '../data';
+import { MIN_CASES_FOR_WEAR, compareEnabled, liveEnabled, type DataSource, type Product, type Region } from '../data';
 import { useProductData } from './useProductData';
 import { pinsFor } from '../render/pinsFor';
 import { GarmentStage } from '../modules/stage/GarmentStage';
+import { LiveStage } from '../modules/stage/LiveStage';
 import { useContainedBox } from '../modules/stage/useContainedBox';
 import { TimeSlider, sliderRangeFor } from '../modules/slider/TimeSlider';
 import { DamageMarkers } from '../modules/markers/DamageMarkers';
@@ -39,17 +40,40 @@ export function ProductView({ source, product, others, t, onT }: Props) {
 
   const [comparing, setComparing] = useState(false);
 
+  // Live try-on (P2 slot): the same stage inputs, a different renderer. Off unless VITE_LIVE=1.
+  const [live, setLive] = useState(false);
+  const [liveStill, setLiveStill] = useState<string | null>(null);
+  const tryOnRef = useRef<HTMLButtonElement>(null);
+  const exitLive = useCallback(() => {
+    setLive(false);
+    setLiveStill(null);
+    requestAnimationFrame(() => tryOnRef.current?.focus());
+  }, []);
+
   const imgRef = useRef<HTMLImageElement>(null);
-  const box = useContainedBox(imgRef, product.image.hero);
+  // Re-measured when the stage's image changes: the hero, or the photo taken on the live stage.
+  const box = useContainedBox(imgRef, live ? liveStill ?? '' : product.image.hero);
+
+  const drawWear = data.status === 'ready' && !thin;
+  const markers = data.status === 'ready' && dossier && (
+    <DamageMarkers product={product} pins={pins} axis={axis} box={box} thin={thin} activeRegion={openRegion} onOpen={open} />
+  );
 
   return (
     <main className={`pv ${comparing ? 'pv--compare' : ''}`}>
       <section className="pv__stage" aria-label={`${product.brand} ${product.name} on the stage`}>
-        <GarmentStage product={product} frames={frames} t={t} drawWear={data.status === 'ready' && !thin} imgRef={imgRef}>
-          {data.status === 'ready' && dossier && (
-            <DamageMarkers product={product} pins={pins} axis={axis} box={box} thin={thin} activeRegion={openRegion} onOpen={open} />
-          )}
-        </GarmentStage>
+        {live ? (
+          <LiveStage product={product} frames={frames} t={t} drawWear={drawWear} imgRef={imgRef} onStill={setLiveStill} onExit={exitLive}>
+            {markers}
+          </LiveStage>
+        ) : (
+          <GarmentStage product={product} frames={frames} t={t} drawWear={drawWear} imgRef={imgRef}>
+            {markers}
+          </GarmentStage>
+        )}
+        {liveEnabled && !live && !comparing && (
+          <button ref={tryOnRef} type="button" className="pv__tryon-btn" onClick={() => setLive(true)}>Try it on</button>
+        )}
         <div className="pv__rail">
           {data.status === 'ready' && dossier && range && axis ? (
             <TimeSlider axis={axis} range={range} value={t} onChange={onT} />
@@ -64,7 +88,7 @@ export function ProductView({ source, product, others, t, onT }: Props) {
           ) : (
             <TimeSlider axis={null} range={{ max: 1, ticks: [0] }} value={0} onChange={() => {}} disabled />
           )}
-          {compareEnabled && !comparing && others.length > 0 && data.status === 'ready' && (
+          {compareEnabled && !comparing && !live && others.length > 0 && data.status === 'ready' && (
             <button type="button" className="pv__compare-btn" onClick={() => setComparing(true)}>Compare</button>
           )}
         </div>

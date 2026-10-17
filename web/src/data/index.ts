@@ -12,6 +12,8 @@ export function createDataSource(): DataSource {
 }
 
 export const compareEnabled = import.meta.env.VITE_COMPARE === '1';
+/** Shows the "Try it on" button that swaps GarmentStage for LiveStage (P2 slot). */
+export const liveEnabled = import.meta.env.VITE_LIVE === '1';
 
 export type { DataSource } from './DataSource';
 export * from './contract';

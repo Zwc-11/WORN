@@ -21,3 +21,11 @@
   border: 1px solid var(--ink-30); border-radius: 999px; padding: 6px 12px; margin-left: 18px; white-space: nowrap;
 }
 .pv__compare-btn:hover { border-color: var(--ink); }
+
+.pv__tryon-btn {
+  position: absolute; top: 16px; right: 40px; z-index: 2;
+  font-family: var(--font-mono); font-size: var(--mono-s); text-transform: uppercase; letter-spacing: 0.08em;
+  border: 1px solid var(--ink); border-radius: 999px; padding: 8px 14px; color: var(--ink); background: var(--paper);
+  transition: background 160ms, color 160ms;
+}
+.pv__tryon-btn:hover { background: var(--ink); color: var(--paper); }
