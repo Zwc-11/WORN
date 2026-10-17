@@ -46,7 +46,7 @@ export function App() {
       </header>
       <ProductStrip products={products} failed={listFailed} selectedId={selectedId} onSelect={select} compact={!!selected} />
       {selected ? (
-        <ProductView key={selected.id} source={source} product={selected} t={t} onT={setT} />
+        <ProductView key={selected.id} source={source} product={selected} others={(products ?? []).filter((p) => p.id !== selected.id)} t={t} onT={setT} />
       ) : (
         <section className="app__empty" aria-live="polite">
           <p className="app__empty-line">Pick a hoodie to see what its owners reported.</p>
