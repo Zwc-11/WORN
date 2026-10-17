@@ -47,14 +47,14 @@ function Counts({ dossier: d }: { dossier: Dossier }) {
         <span className="mono">{formatCount(d.reviewsWithPhotos)}</span> with photos.
       </p>
       <div className="counts__cols">
-        <dl className="counts__list">
-          <dt className="counts__title">By type</dt>
-          {types.map((t) => (<div key={t} className="counts__row"><dd>{TYPE_LABEL[t]}</dd><span className="mono">{d.counts.byType[t]}</span></div>))}
-        </dl>
-        <dl className="counts__list">
-          <dt className="counts__title">By region</dt>
-          {regions.map((r) => (<div key={r} className="counts__row"><dd>{REGION_LABEL[r]}</dd><span className="mono">{d.counts.byRegion[r]}</span></div>))}
-        </dl>
+        <div className="counts__list">
+          <h2 className="counts__title">By type</h2>
+          <ul>{types.map((t) => (<li key={t} className="counts__row"><span>{TYPE_LABEL[t]}</span><span className="mono">{d.counts.byType[t]}</span></li>))}</ul>
+        </div>
+        <div className="counts__list">
+          <h2 className="counts__title">By region</h2>
+          <ul>{regions.map((r) => (<li key={r} className="counts__row"><span>{REGION_LABEL[r]}</span><span className="mono">{d.counts.byRegion[r]}</span></li>))}</ul>
+        </div>
       </div>
     </section>
   );

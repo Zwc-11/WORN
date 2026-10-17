@@ -28,7 +28,6 @@ export function ProductStrip({ products, failed, selectedId, onSelect, compact }
                   className={`card ${active ? 'card--active' : ''}`}
                   onClick={() => onSelect(p.id)}
                   aria-pressed={active}
-                  aria-label={`${p.brand} ${p.name}, ${p.price ? formatPrice(p.price) : 'price unknown'}, ${BADGE[p.evidence]}`}
                   style={{ viewTransitionName: active ? 'none' : `card-${p.id}` } as React.CSSProperties}
                 >
                   <span className="card__img-wrap">
