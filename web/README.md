@@ -20,6 +20,7 @@ npm run build
 | `VITE_SOURCE` | `fixture` (default) · `http` | `FixtureSource` reads `/fixtures/*.json`; `HttpSource` fetches `/api/*` with the same shapes |
 | `VITE_API_BASE` | URL | Base for `HttpSource`, e.g. `http://localhost:8787` |
 | `VITE_COMPARE` | `0` · `1` | Shows the Compare button and the second stage |
+| `VITE_LIVE` | `0` · `1` | Shows the **Try it on** button that swaps the still-image stage for the live try-on stage (P2 slot, camera only until a renderer is wired in) |
 
 Query flags for the demo and the gate check: `?product=<id>` selects a hoodie; `?state=loading|failed|none|thin`
 forces one designed state through `ForcedStateSource` (dev only, not part of the contract).
@@ -56,12 +57,39 @@ GET /api/products/:id/frames      -> Frames
 `node scripts/make-stills.mjs`. Replace them with C's lucy-image-2 stills (WebP, 1600 px long side) under the
 same paths, or update the paths in `<id>.frames.json`. `sample-photos/` are labelled stand-ins for owner photos.
 
+## Live try-on slot (P2, owner C)
+
+`src/modules/stage/LiveStage.tsx` is the third `GarmentStage` implementation from Plan v2: same props
+(`product`, `frames`, `t`, `drawWear`, `children` for the marker layer, `imgRef` for marker placement), so
+`ProductView` renders one or the other and the cards, slider, markers, drawer and detail column do not change.
+With `VITE_LIVE=1` a **Try it on** button appears on the stage; it asks for the camera with
+`getUserMedia({ video: { facingMode: 'user' } })` and shows designed screens for asking / denied / unavailable /
+viewfinder (mirrored, with a frame and "Step back so the whole top is in frame") / **Hold still** (a photo taken
+to a canvas, with the marks and "Stage N of M" under it). Escape or **Back to the photo** returns to the stills.
+
+The stage talks to the model only through `src/modules/stage/liveRenderer.ts`:
+
+```ts
+interface LiveRenderer {
+  start(stream: MediaStream, product: Product): Promise<void>; // set `output` to the <video> of returned frames
+  setStage(stageIndex: number, prompt: string): void;          // slider moved into frames.stages[stageIndex]
+  stop(): void;                                                // idempotent teardown
+  output: HTMLVideoElement | null;
+}
+```
+
+To wire the real renderer: implement `LiveRenderer` in a sibling file, return it from `createLiveRenderer()`
+(keep `NullRenderer`, the camera pass-through, as the fallback), and replace the body of `stagePrompt(frames, i)`
+with the real per-stage prompt (today a placeholder derived from `frames.stages[i].basedOn.length`). The stage
+index comes from `stageIndexFor` in `src/render/frameFor.ts`, the same logic that picks the stills, so the slider
+stays shared. No model or API name appears on the page; the data contract is untouched.
+
 ## Modules
 
 ```
 src/app/            App (strip + stage switch), ProductView (one product, state switch), useProductData
-src/modules/        picker · product · stage · slider · markers · evidence · compare
+src/modules/        picker · product · stage (GarmentStage, LiveStage, liveRenderer) · slider · markers · evidence · compare
 src/data/           contract, DataSource, FixtureSource, HttpSource, ForcedStateSource, index (source picker)
-src/render/         frameFor (frames, t) -> {a, b, mix}; pinsFor (dossier, t) -> pins by region
+src/render/         frameFor (frames, t) -> {a, b, mix}; stageIndexFor; pinsFor (dossier, t) -> pins by region
 src/ui/tokens.css   paper / ink / oxblood, Fraunces + Inter + JetBrains Mono (self-hosted via @fontsource)
 ```

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { frameFor } from './frameFor';
+import { frameFor, stageIndexFor } from './frameFor';
 import type { Frames } from '../data/contract';
 
 const frames: Frames = {
@@ -28,5 +28,19 @@ describe('frameFor', () => {
   it('unions basedOn of passed stages without duplicates', () => {
     expect(frameFor(frames, 30).basedOn).toEqual(['c1', 'c2']);
     expect(frameFor(frames, 3).basedOn).toEqual([]);
+  });
+});
+
+describe('stageIndexFor', () => {
+  it('returns the stage at or before t, clamped', () => {
+    expect(stageIndexFor(frames, 0)).toBe(0);
+    expect(stageIndexFor(frames, 9.9)).toBe(0);
+    expect(stageIndexFor(frames, 10)).toBe(1);
+    expect(stageIndexFor(frames, 24)).toBe(1);
+    expect(stageIndexFor(frames, 25)).toBe(2);
+    expect(stageIndexFor(frames, 99)).toBe(2);
+  });
+  it('is 0 for a single stage', () => {
+    expect(stageIndexFor({ ...frames, stages: [frames.stages[0]] }, 50)).toBe(0);
   });
 });
