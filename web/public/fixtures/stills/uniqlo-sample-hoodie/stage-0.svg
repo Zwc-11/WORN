@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+<rect width="1200" height="1600" fill="#F3F0EA"/>
+<g stroke="#141414" stroke-width="3" stroke-linejoin="round">
+  <!-- sleeves -->
+  <path d="M330 640 L120 1000 L190 1180 L330 1130 L420 820 Z" fill="#4a4a4f"/>
+  <path d="M870 640 L1080 1000 L1010 1180 L870 1130 L780 820 Z" fill="#4a4a4f"/>
+  <!-- body -->
+  <path d="M330 640 Q600 560 870 640 L870 1240 Q600 1280 330 1240 Z" fill="#4a4a4f"/>
+  <!-- hood -->
+  <path d="M400 640 Q380 360 600 300 Q820 360 800 640 Q600 700 400 640 Z" fill="#4a4a4f"/>
+  <path d="M470 630 Q500 470 600 450 Q700 470 730 630" fill="#F3F0EA" stroke="#141414"/>
+  <!-- hem band -->
+  <path d="M330 1200 Q600 1240 870 1200 L870 1240 Q600 1280 330 1240 Z" fill="#424246"/>
+  <!-- cuffs -->
+  <path d="M120 1000 L190 1180 L250 1160 L185 985 Z" fill="#424246"/>
+  <path d="M1080 1000 L1010 1180 L950 1160 L1015 985 Z" fill="#424246"/>
+  <!-- kangaroo pocket -->
+  <path d="M430 1000 L770 1000 L740 1180 L460 1180 Z" fill="none" stroke-opacity="0.5"/>
+  <!-- drawstrings -->
+  <path d="M570 640 L560 820 M630 640 L640 820" fill="none" stroke-opacity="0.8"/>
+</g>
+
+
+
+
+<text x="40" y="1560" font-family="monospace" font-size="28" fill="#141414" opacity="0.6">PLACEHOLDER ILLUSTRATION · not a photo</text>
+</svg>
