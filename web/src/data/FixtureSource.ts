@@ -3,6 +3,7 @@ import type { DataSource } from './DataSource';
 
 /** Reads /fixtures/*.json served from web/public. Validated with zod on every read. */
 export class FixtureSource implements DataSource {
+  private products: Promise<Product[]> | null = null;
   constructor(private readonly base = '/fixtures') {}
 
   private async json(path: string): Promise<unknown> {
@@ -12,8 +13,10 @@ export class FixtureSource implements DataSource {
     return res.json();
   }
 
-  async listProducts(): Promise<Product[]> {
-    return ProductListSchema.parse(await this.json('products.json'));
+  listProducts(): Promise<Product[]> {
+    // One fetch per page load; product, dossier and frames lookups all go through it.
+    this.products ??= this.json('products.json').then((j) => ProductListSchema.parse(j)).catch((e) => { this.products = null; throw e; });
+    return this.products;
   }
 
   async getProduct(id: string): Promise<Product> {
