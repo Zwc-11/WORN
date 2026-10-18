@@ -1,0 +1,29 @@
+{
+  "productId": "uniqlo-sample-hoodie",
+  "axis": "months",
+  "reviewsRead": 418,
+  "reviewsWithPhotos": 0,
+  "sample": true,
+  "updatedAt": "2026-10-17",
+  "cases": [
+    { "id": "unq-c01", "type": "pilling", "region": "armpit", "t": 3,
+      "quote": "[sample] Light pilling under the arms after three months of weekly wear.",
+      "source": { "site": "uniqlo", "url": "https://example.com/sample-review/21", "date": "2025-04-10", "rating": 4 } },
+    { "id": "unq-c02", "type": "pilling", "region": "armpit", "t": 6,
+      "quote": "[sample] Six months in, fuzz balls under the sleeves. Body is fine.",
+      "source": { "site": "uniqlo", "url": "https://example.com/sample-review/22", "date": "2025-06-30", "rating": 4 } },
+    { "id": "unq-c03", "type": "cuff_wear", "region": "cuffs", "t": 9,
+      "quote": "[sample] Cuffs thinned out after about nine months.",
+      "source": { "site": "uniqlo", "url": "https://example.com/sample-review/23", "date": "2025-08-14", "rating": 3 } },
+    { "id": "unq-c04", "type": "seam_split", "region": "seams", "t": null,
+      "quote": "[sample] A side seam opened a few centimetres. Not sure when it started.",
+      "source": { "site": "uniqlo", "url": "https://example.com/sample-review/24", "date": "2025-09-02", "rating": 2 } },
+    { "id": "unq-c05", "type": "collar_deform", "region": "collar", "t": null, "unitStated": "washes",
+      "quote": "[sample] Neckline stretched out after maybe fifteen washes.",
+      "source": { "site": "uniqlo", "url": "https://example.com/sample-review/25", "date": "2025-09-20", "rating": 3 } }
+  ],
+  "counts": {
+    "byType": { "pilling": 2, "fading": 0, "collar_deform": 1, "cuff_wear": 1, "seam_split": 1, "print_crack": 0 },
+    "byRegion": { "collar": 1, "cuffs": 1, "armpit": 2, "hem": 0, "seams": 1, "chest_print": 0 }
+  }
+}

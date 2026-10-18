@@ -1,0 +1,12 @@
+{
+  "productId": "amz-sample-hoodie",
+  "axis": "washes",
+  "generated": true,
+  "label": "illustration",
+  "stages": [
+    { "t": 0,  "image": "/fixtures/stills/amz-sample-hoodie/stage-0.svg", "basedOn": [] },
+    { "t": 10, "image": "/fixtures/stills/amz-sample-hoodie/stage-1.svg", "basedOn": ["amz-c01", "amz-c02"] },
+    { "t": 25, "image": "/fixtures/stills/amz-sample-hoodie/stage-2.svg", "basedOn": ["amz-c03", "amz-c05", "amz-c06", "amz-c07", "amz-c10"] },
+    { "t": 40, "image": "/fixtures/stills/amz-sample-hoodie/stage-3.svg", "basedOn": ["amz-c08"] }
+  ]
+}

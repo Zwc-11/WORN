@@ -2,23 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WORN</title>
-    <style>
-      body { margin: 0; background: #f3f0ea; color: #141414; font: 16px/1.5 Inter, system-ui, sans-serif; }
-      main { max-width: 640px; margin: 64px auto; padding: 0 16px; }
-      a { color: #7a1f1f; }
-    </style>
   </head>
   <body>
-    <!-- Placeholder: A's App (src/app/App.tsx) replaces this page. The render lane lives on the two pages below. -->
-    <main>
-      <h1>WORN · render lane</h1>
-      <ul>
-        <li><a href="/lab.html">Render lab</a>: gate tests for the live try-on, stills review</li>
-        <li><a href="/stage.html">Live stage</a>: the stage as the demo shows it (<a href="/stage.html?engine=mock">mock engine</a>)</li>
-      </ul>
-    </main>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
