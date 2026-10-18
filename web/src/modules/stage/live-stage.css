@@ -1,141 +1,61 @@
-/* Plan v2 look: paper ground, ink, one oxblood accent. A's tokens.css may override these variables. */
-.live-stage {
-  --ls-paper: var(--paper, #f3f0ea);
-  --ls-ink: var(--ink, #141414);
-  --ls-accent: var(--accent, #7a1f1f);
-  --ls-ui: var(--font-ui, 'Inter', system-ui, sans-serif);
-  --ls-mono: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace);
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: var(--ls-paper);
-  color: var(--ls-ink);
-  font-family: var(--ls-ui);
+/* LiveStage: the hoodie on the person. Shares .stage / .stage__canvas / .stage__caption with GarmentStage. */
+.live__canvas { background: var(--paper-2); border-radius: var(--radius); overflow: hidden; }
+
+/* Designed screens: requesting / denied / unavailable */
+.live__screen {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 32px; text-align: center;
+  animation: live-in 220ms var(--ease-out) both;
 }
-.live-stage__layer,
-.live-stage__video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+@keyframes live-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.live__lens {
+  width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--ink); margin-bottom: 6px; position: relative;
 }
-.live-stage__video {
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 400ms ease-out;
-  background: transparent;
+.live__lens::after {
+  content: ''; position: absolute; inset: 12px; border-radius: 50%; border: 2px solid var(--ink-30);
+  animation: live-breathe 1.6s ease-in-out infinite;
 }
-.live-stage__video.is-on {
-  opacity: 1;
+@keyframes live-breathe { 0%, 100% { transform: scale(0.85); opacity: 0.5; } 50% { transform: scale(1); opacity: 1; } }
+.live__lens--off { border-style: dashed; border-color: var(--ink-30); }
+.live__lens--off::after { animation: none; border-color: var(--ink-12); }
+.live__title { margin: 0; font-family: var(--font-display); font-size: var(--display-m); }
+.live__hint { margin: 0; max-width: 34ch; color: var(--ink-60); font-size: var(--ui-m); }
+
+/* Buttons */
+.live__btn {
+  font-family: var(--font-mono); font-size: var(--mono-m); text-transform: uppercase; letter-spacing: 0.08em;
+  border: 1px solid var(--ink); border-radius: 999px; padding: 10px 18px; color: var(--paper); background: var(--ink);
+  transition: transform 160ms var(--spring), background 160ms, color 160ms;
 }
-.live-stage__chip {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--ls-paper) 88%, transparent);
-  font: 500 13px/1 var(--ls-ui);
+.live__btn:hover { transform: translateY(-1px); }
+.live__btn--ghost { background: rgba(243, 240, 234, 0.85); color: var(--ink); border-color: var(--ink-30); backdrop-filter: blur(6px); }
+.live__btn--ghost:hover { border-color: var(--ink); }
+.live__screen .live__btn { margin-top: 10px; }
+
+/* Viewfinder */
+.live__mount { position: absolute; inset: 0; }
+.live__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); background: var(--ink); }
+.live__frame { position: absolute; inset: 7% 12%; pointer-events: none; opacity: 0.7; }
+.live__corner { position: absolute; width: 28px; height: 28px; border: 2px solid var(--paper); }
+.live__corner--tl { top: 0; left: 0; border-right: 0; border-bottom: 0; border-top-left-radius: 8px; }
+.live__corner--tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-top-right-radius: 8px; }
+.live__corner--bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-bottom-left-radius: 8px; }
+.live__corner--br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-bottom-right-radius: 8px; }
+.live__guide {
+  position: absolute; top: 9%; left: 14%; right: 14%; margin: 0; pointer-events: none; text-align: center;
+  font-family: var(--font-display); font-size: var(--display-m); line-height: 1.2; color: var(--paper);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6); animation: live-in 320ms var(--ease-out) both;
 }
-.live-stage__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--ls-accent);
-  animation: ls-pulse 1.6s ease-in-out infinite;
+.live__actions {
+  position: absolute; left: 0; right: 0; bottom: 20px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 16px;
 }
-.live-stage__dot.is-warn {
-  background: #b07a1f;
-}
-@keyframes ls-pulse {
-  50% {
-    opacity: 0.35;
-  }
-}
-.live-stage__caption {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  padding: 6px 10px;
-  background: color-mix(in srgb, var(--ls-paper) 88%, transparent);
-  font: 400 13px/1.2 var(--ls-mono);
-}
-.live-stage__notice {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  min-width: 240px;
-  background: color-mix(in srgb, var(--ls-paper) 92%, transparent);
-  font: 400 15px/1.3 var(--ls-ui);
-  text-align: center;
-}
-.live-stage__notice.is-quiet {
-  top: 16px;
-  left: auto;
-  right: 16px;
-  transform: none;
-  min-width: 0;
-  padding: 8px 10px 8px 14px;
-  flex-direction: row;
-  font-size: 13px;
-}
-.live-stage__notice button,
-.live-stage__start {
-  font: 500 14px/1 var(--ls-ui);
-  color: var(--ls-paper);
-  background: var(--ls-ink);
-  border: 0;
-  padding: 10px 16px;
-  cursor: pointer;
-}
-.live-stage__start {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-}
-.live-stage__start:focus-visible,
-.live-stage__notice button:focus-visible {
-  outline: 2px solid var(--ls-accent);
-  outline-offset: 2px;
-}
-.live-stage__progress {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--ls-accent), transparent);
-  background-size: 50% 100%;
-  animation: ls-sweep 900ms linear infinite;
-}
-.live-stage__notice .live-stage__progress {
-  position: static;
-  width: 100%;
-}
-@keyframes ls-sweep {
-  from {
-    background-position: -50% 0;
-  }
-  to {
-    background-position: 150% 0;
-  }
-}
+
+/* The photo the person took: same box as the stage image so markers land on it */
+.live__still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; user-select: none; background: var(--ink); }
+
+.live .stage__caption { flex-wrap: wrap; row-gap: 4px; }
+.live__stage-no { margin-left: auto; color: var(--ink); white-space: nowrap; }
+
 @media (prefers-reduced-motion: reduce) {
-  .live-stage__dot,
-  .live-stage__progress {
-    animation: none;
-  }
-  .live-stage__video {
-    transition: none;
-  }
+  .live__lens::after { animation: none; }
 }
