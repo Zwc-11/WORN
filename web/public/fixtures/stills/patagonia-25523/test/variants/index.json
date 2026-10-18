@@ -1,0 +1,39 @@
+{
+  "productId": "patagonia-25523",
+  "axis": "washes",
+  "resolution": "720p",
+  "test": true,
+  "generatedAt": "2026-10-17T23:23:25.260Z",
+  "stages": [
+    {
+      "t": 1,
+      "prompt": "Add realistic wear to this quarter-zip fleece pullover, as it looks after 1 wash of everyday use: a few small lint pills under the arms. Everything else stays exactly the same: the same quarter-zip fleece pullover, the same moonrise taupe color and fabric texture, zipper, logo, shape, framing, lighting and plain background.",
+      "files": [
+        "/fixtures/stills/patagonia-25523/test/variants/1-v0.png",
+        "/fixtures/stills/patagonia-25523/test/variants/1-v1.png",
+        "/fixtures/stills/patagonia-25523/test/variants/1-v2.png"
+      ],
+      "basedOn": 0
+    },
+    {
+      "t": 10,
+      "prompt": "Add realistic wear to this quarter-zip fleece pullover, as it looks after 10 washes of everyday use: small lint pills and light fuzz under the arms, a few small lint pills on the cuffs, a few small lint pills along the hem. Everything else stays exactly the same: the same quarter-zip fleece pullover, the same moonrise taupe color and fabric texture, zipper, logo, shape, framing, lighting and plain background.",
+      "files": [
+        "/fixtures/stills/patagonia-25523/test/variants/10-v0.png",
+        "/fixtures/stills/patagonia-25523/test/variants/10-v1.png",
+        "/fixtures/stills/patagonia-25523/test/variants/10-v2.png"
+      ],
+      "basedOn": 0
+    },
+    {
+      "t": 25,
+      "prompt": "Add realistic wear to this quarter-zip fleece pullover, as it looks after 25 washes of everyday use: many small lint pills and fuzz under the arms, small lint pills and light fuzz on the cuffs, small lint pills and light fuzz along the hem, slightly faded moonrise taupe fabric across the body. Everything else stays exactly the same: the same quarter-zip fleece pullover, the same moonrise taupe color and fabric texture, zipper, logo, shape, framing, lighting and plain background.",
+      "files": [
+        "/fixtures/stills/patagonia-25523/test/variants/25-v0.png",
+        "/fixtures/stills/patagonia-25523/test/variants/25-v1.png",
+        "/fixtures/stills/patagonia-25523/test/variants/25-v2.png"
+      ],
+      "basedOn": 0
+    }
+  ]
+}
