@@ -1,0 +1,21 @@
+{
+  "name": "@worn/pipeline",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "frames": "tsx render/gen-wear-frames.ts",
+    "pick": "tsx render/pick-frames.ts",
+    "check:fixtures": "tsx render/check-fixtures.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@decartai/sdk": "0.2.11",
+    "dotenv": "16.6.1",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}
