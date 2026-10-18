@@ -1,0 +1,38 @@
+[
+  {
+    "id": "patagonia-25523",
+    "brand": "Patagonia",
+    "name": "Men's Better Sweater 1/4-Zip Fleece",
+    "type": "quarter_zip",
+    "material": "10-oz 100% recycled polyester knit fleece",
+    "color": "New Navy",
+    "price": {
+      "amount": 149,
+      "currency": "USD"
+    },
+    "url": "https://www.patagonia.com/product/mens-better-sweater-quarter-zip-fleece-pullover/25523.html",
+    "image": {
+      "hero": "/fixtures/products/patagonia-25523/new-navy.jpg",
+      "flat": "/fixtures/products/patagonia-25523/new-navy-16x9.jpg"
+    },
+    "evidence": "none"
+  },
+  {
+    "id": "sample-hoodie",
+    "brand": "Sample",
+    "name": "Sample Pullover Hoodie",
+    "type": "hoodie",
+    "material": "Cotton-poly fleece",
+    "color": "Black",
+    "price": {
+      "amount": 28,
+      "currency": "USD"
+    },
+    "url": "https://example.com/sample-hoodie",
+    "image": {
+      "hero": "/fixtures/products/sample-hoodie/flat.png",
+      "flat": "/fixtures/products/sample-hoodie/flat.png"
+    },
+    "evidence": "sample"
+  }
+]

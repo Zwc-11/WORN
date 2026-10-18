@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+web/public/fixtures/stills/*/variants/
+*.log
+demo/archive/
+demo/scratch/
+web/public/fixtures/uploads/

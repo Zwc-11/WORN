@@ -1,38 +1,58 @@
 [
   {
-    "id": "patagonia-25523",
-    "brand": "Patagonia",
-    "name": "Men's Better Sweater 1/4-Zip Fleece",
-    "type": "quarter_zip",
-    "material": "10-oz 100% recycled polyester knit fleece",
-    "color": "New Navy",
-    "price": {
-      "amount": 149,
-      "currency": "USD"
-    },
-    "url": "https://www.patagonia.com/product/mens-better-sweater-quarter-zip-fleece-pullover/25523.html",
-    "image": {
-      "hero": "/fixtures/products/patagonia-25523/new-navy.jpg",
-      "flat": "/fixtures/products/patagonia-25523/new-navy-16x9.jpg"
-    },
-    "evidence": "none"
-  },
-  {
-    "id": "sample-hoodie",
-    "brand": "Sample",
-    "name": "Sample Pullover Hoodie",
+    "id": "amz-sample-hoodie",
+    "brand": "Sample brand",
+    "name": "Fleece Pullover Hoodie",
     "type": "hoodie",
-    "material": "Cotton-poly fleece",
+    "material": "80% cotton, 20% polyester fleece",
     "color": "Black",
-    "price": {
-      "amount": 28,
-      "currency": "USD"
-    },
-    "url": "https://example.com/sample-hoodie",
+    "price": { "amount": 24, "currency": "USD" },
+    "url": "https://example.com/sample/amz-sample-hoodie",
     "image": {
-      "hero": "/fixtures/products/sample-hoodie/flat.png",
-      "flat": "/fixtures/products/sample-hoodie/flat.png"
+      "hero": "/fixtures/stills/amz-sample-hoodie/stage-0.svg",
+      "regions": {
+        "collar": { "x": 50, "y": 27 },
+        "chest_print": { "x": 50, "y": 48 },
+        "armpit": { "x": 30, "y": 41 },
+        "cuffs": { "x": 13, "y": 73 },
+        "hem": { "x": 50, "y": 79 },
+        "seams": { "x": 71, "y": 58 }
+      }
     },
     "evidence": "sample"
+  },
+  {
+    "id": "uniqlo-sample-hoodie",
+    "brand": "Sample brand",
+    "name": "Sweat Pullover Hoodie",
+    "type": "hoodie",
+    "material": "100% cotton sweat",
+    "color": "Dark grey",
+    "price": { "amount": 39.9, "currency": "USD" },
+    "url": "https://example.com/sample/uniqlo-sample-hoodie",
+    "image": {
+      "hero": "/fixtures/stills/uniqlo-sample-hoodie/stage-0.svg",
+      "regions": {
+        "collar": { "x": 50, "y": 27 },
+        "chest_print": { "x": 50, "y": 48 },
+        "armpit": { "x": 30, "y": 41 },
+        "cuffs": { "x": 13, "y": 73 },
+        "hem": { "x": 50, "y": 79 },
+        "seams": { "x": 71, "y": 58 }
+      }
+    },
+    "evidence": "sample"
+  },
+  {
+    "id": "zara-sample-hoodie",
+    "brand": "Sample brand",
+    "name": "Basic Hoodie",
+    "type": "hoodie",
+    "material": "Cotton blend",
+    "color": "Ecru",
+    "price": { "amount": 35.9, "currency": "USD" },
+    "url": "https://example.com/sample/zara-sample-hoodie",
+    "image": { "hero": "/fixtures/stills/zara-sample-hoodie/stage-0.svg" },
+    "evidence": "none"
   }
 ]
