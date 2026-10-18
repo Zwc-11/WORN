@@ -1,0 +1,11 @@
+{
+  "productId": "uniqlo-sample-hoodie",
+  "axis": "months",
+  "generated": true,
+  "label": "illustration",
+  "stages": [
+    { "t": 0, "image": "/fixtures/stills/uniqlo-sample-hoodie/stage-0.svg", "basedOn": [] },
+    { "t": 4, "image": "/fixtures/stills/uniqlo-sample-hoodie/stage-1.svg", "basedOn": ["unq-c01"] },
+    { "t": 10, "image": "/fixtures/stills/uniqlo-sample-hoodie/stage-2.svg", "basedOn": ["unq-c02", "unq-c03"] }
+  ]
+}

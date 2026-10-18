@@ -1,0 +1,29 @@
+.detail { padding: 28px 40px 40px; display: flex; flex-direction: column; gap: 28px; min-width: 0; overflow-y: auto; }
+.detail__head { position: relative; }
+.detail__brand { margin: 0 0 6px; font-size: var(--ui-s); text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-60); }
+.detail__name {
+  margin: 0; font-family: var(--font-display); font-weight: 400; font-size: var(--display-xl); line-height: 0.98; letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.detail__tags { display: flex; gap: 8px; margin-top: 16px; }
+.detail__progress { position: absolute; left: 0; right: 0; bottom: -12px; height: 1px; background: var(--ink-12); overflow: hidden; opacity: 0; transition: opacity 200ms; }
+.detail__progress--on { opacity: 1; }
+.detail__progress--on::after {
+  content: ''; position: absolute; inset: 0; width: 40%; background: var(--ink);
+  animation: progress 1.1s var(--ease-out) infinite;
+}
+@keyframes progress { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+
+.detail__facts { margin: 0; display: grid; grid-template-columns: 96px 1fr; row-gap: 8px; column-gap: 16px; font-size: var(--ui-m); }
+.detail__facts dt { color: var(--ink-60); }
+.detail__facts dd { margin: 0; }
+.detail__note { margin: 0; font-size: var(--ui-m); color: var(--ink-60); max-width: 44ch; }
+
+.counts { border-top: 1px solid var(--ink-12); padding-top: 20px; }
+.counts__lead { margin: 0 0 16px; font-family: var(--font-display); font-size: var(--display-m); line-height: 1.3; }
+.counts__lead .mono { font-size: var(--mono-l); }
+.counts__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.counts__list { margin: 0; }
+.counts__list ul { list-style: none; margin: 0; padding: 0; }
+.counts__title { margin: 0; font-weight: 400; font-size: var(--ui-s); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-60); margin-bottom: 8px; }
+.counts__row { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-bottom: 1px dashed var(--ink-12); }

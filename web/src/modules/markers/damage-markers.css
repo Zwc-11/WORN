@@ -1,0 +1,27 @@
+.markers { position: absolute; pointer-events: none; }
+.pin {
+  position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; display: grid; place-items: center;
+  pointer-events: auto; border-radius: 50%;
+  animation: pin-in 180ms var(--ease-out) both;
+}
+@keyframes pin-in { from { transform: scale(0.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.pin__dot {
+  width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--ink); background: var(--paper);
+  box-shadow: 0 0 0 3px rgba(243, 240, 234, 0.9); transition: transform 160ms var(--ease-out), background 160ms, border-color 160ms;
+}
+.pin--dashed .pin__dot { border-style: dashed; opacity: 0.6; }
+.pin:hover .pin__dot, .pin:focus-visible .pin__dot { transform: scale(1.15); }
+.pin--active .pin__dot { background: var(--accent); border-color: var(--accent); opacity: 1; }
+.pin:focus-visible { outline: none; }
+.pin:focus-visible .pin__dot { box-shadow: 0 0 0 3px rgba(243, 240, 234, 0.9), 0 0 0 5px var(--accent); }
+
+.pin__tip {
+  position: absolute; left: 50%; bottom: calc(100% - 2px); transform: translate(-50%, 4px);
+  display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; min-width: 150px;
+  background: var(--ink); color: var(--paper); border-radius: var(--radius); text-align: left;
+  opacity: 0; pointer-events: none; transition: opacity 120ms, transform 160ms var(--ease-out); white-space: nowrap;
+}
+.pin__tip::after { content: ''; position: absolute; left: 50%; top: 100%; margin-left: -5px; border: 5px solid transparent; border-top-color: var(--ink); }
+.pin__tip-type { font-size: var(--ui-s); }
+.pin__tip-meta { font-size: var(--mono-s); opacity: 0.75; }
+.pin:hover .pin__tip, .pin:focus-visible .pin__tip { opacity: 1; transform: translate(-50%, 0); }
