@@ -1,0 +1,18 @@
+{
+  "name": "worn",
+  "private": true,
+  "type": "module",
+  "workspaces": ["web", "server", "pipeline"],
+  "scripts": {
+    "dev": "concurrently -k -n web,api -c magenta,cyan \"npm run dev -w web\" \"npm run dev -w server\"",
+    "test": "npm run test -w web && npm run test -w server",
+    "typecheck": "npm run typecheck -w web && npm run typecheck -w server && npm run typecheck -w pipeline",
+    "check:fixtures": "npm run check:fixtures -w pipeline",
+    "frames": "npm run frames -w pipeline --",
+    "frames:dry": "npm run frames -w pipeline -- --product sample-hoodie --dry-run"
+  },
+  "devDependencies": {
+    "concurrently": "9.2.5"
+  },
+  "engines": { "node": ">=20.6" }
+}

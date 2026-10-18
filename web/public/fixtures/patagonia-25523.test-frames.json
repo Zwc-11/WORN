@@ -1,0 +1,28 @@
+{
+  "productId": "patagonia-25523",
+  "axis": "washes",
+  "stages": [
+    {
+      "t": 0,
+      "image": "/fixtures/products/patagonia-25523/new-navy-16x9.jpg",
+      "basedOn": []
+    },
+    {
+      "t": 1,
+      "image": "/fixtures/products/patagonia-25523/new-navy-16x9.jpg",
+      "basedOn": []
+    },
+    {
+      "t": 10,
+      "image": "/fixtures/uploads/patagonia-25523/owner-1-clean-41.png",
+      "basedOn": []
+    },
+    {
+      "t": 25,
+      "image": "/fixtures/uploads/patagonia-25523/owner-1-flat.png",
+      "basedOn": []
+    }
+  ],
+  "generated": true,
+  "label": "illustration"
+}

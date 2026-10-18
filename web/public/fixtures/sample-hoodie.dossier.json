@@ -1,0 +1,250 @@
+{
+  "productId": "sample-hoodie",
+  "axis": "washes",
+  "reviewsRead": 2310,
+  "reviewsWithPhotos": 184,
+  "cases": [
+    {
+      "id": "c01",
+      "type": "pilling",
+      "region": "armpit",
+      "t": 3,
+      "quote": "[sample] Pilling under the arms after 3 washes.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c01",
+        "date": "2026-01-10",
+        "rating": 1
+      }
+    },
+    {
+      "id": "c02",
+      "type": "pilling",
+      "region": "armpit",
+      "t": 5,
+      "quote": "[sample] By the fifth wash the underarms were covered in little balls.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c02",
+        "date": "2026-02-11",
+        "rating": 2
+      }
+    },
+    {
+      "id": "c03",
+      "type": "pilling",
+      "region": "armpit",
+      "t": 8,
+      "quote": "[sample] Around 8 washes the pilling under the arms got bad.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c03",
+        "date": "2026-03-12",
+        "rating": 2
+      }
+    },
+    {
+      "id": "c04",
+      "type": "pilling",
+      "region": "armpit",
+      "t": 10,
+      "quote": "[sample] 10 washes in, underarms are fuzzy and pilled.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c04",
+        "date": "2026-04-13",
+        "rating": 1
+      }
+    },
+    {
+      "id": "c05",
+      "type": "pilling",
+      "region": "armpit",
+      "t": null,
+      "quote": "[sample] Pills under the arms, not sure exactly when it started.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c05",
+        "date": "2026-05-14",
+        "rating": 2
+      }
+    },
+    {
+      "id": "c06",
+      "type": "fading",
+      "region": "hem",
+      "t": 6,
+      "quote": "[sample] Black started looking grey after 6 washes.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c06",
+        "date": "2026-06-15",
+        "rating": 2
+      }
+    },
+    {
+      "id": "c07",
+      "type": "fading",
+      "region": "hem",
+      "t": 12,
+      "quote": "[sample] Faded noticeably by the 12th wash.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c07",
+        "date": "2026-07-16",
+        "rating": 1
+      }
+    },
+    {
+      "id": "c08",
+      "type": "fading",
+      "region": "hem",
+      "t": 20,
+      "quote": "[sample] 20 washes and it's a dull charcoal now.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c08",
+        "date": "2026-08-17",
+        "rating": 2
+      }
+    },
+    {
+      "id": "c09",
+      "type": "fading",
+      "region": "hem",
+      "t": 25,
+      "quote": "[sample] After 25 washes the colour is completely washed out.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c09",
+        "date": "2026-09-18",
+        "rating": 2
+      }
+    },
+    {
+      "id": "c10",
+      "type": "cuff_wear",
+      "region": "cuffs",
+      "t": 15,
+      "quote": "[sample] Cuffs started fraying around wash 15.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c10",
+        "date": "2026-01-10",
+        "rating": 1
+      }
+    },
+    {
+      "id": "c11",
+      "type": "cuff_wear",
+      "region": "cuffs",
+      "t": 22,
+      "quote": "[sample] After 22 washes the cuffs are frayed and loose.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c11",
+        "date": "2026-02-11",
+        "rating": 2
+      }
+    },
+    {
+      "id": "c12",
+      "type": "cuff_wear",
+      "region": "cuffs",
+      "t": null,
+      "quote": "[sample] Cuffs stretched out and frayed.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c12",
+        "date": "2026-03-12",
+        "rating": 2
+      }
+    },
+    {
+      "id": "c13",
+      "type": "print_crack",
+      "region": "chest_print",
+      "t": 10,
+      "quote": "[sample] Chest print started cracking at 10 washes.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c13",
+        "date": "2026-04-13",
+        "rating": 1
+      }
+    },
+    {
+      "id": "c14",
+      "type": "print_crack",
+      "region": "chest_print",
+      "t": 18,
+      "quote": "[sample] Print is cracked and flaking after 18 washes.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c14",
+        "date": "2026-05-14",
+        "rating": 2
+      }
+    },
+    {
+      "id": "c15",
+      "type": "collar_deform",
+      "region": "collar",
+      "t": null,
+      "quote": "[sample] Neckline went wavy.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c15",
+        "date": "2026-06-15",
+        "rating": 2
+      }
+    },
+    {
+      "id": "c16",
+      "type": "seam_split",
+      "region": "armpit",
+      "t": 30,
+      "quote": "[sample] Underarm seam split after about 30 washes.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c16",
+        "date": "2026-07-16",
+        "rating": 1
+      }
+    },
+    {
+      "id": "c17",
+      "type": "pilling",
+      "region": "hem",
+      "t": 4,
+      "quote": "[sample] Pilling near the hem after 4 months of wear.",
+      "source": {
+        "site": "amazon",
+        "url": "https://example.com/sample-review/c17",
+        "date": "2026-08-17",
+        "rating": 2
+      },
+      "unitStated": "months"
+    }
+  ],
+  "counts": {
+    "byType": {
+      "pilling": 6,
+      "fading": 4,
+      "collar_deform": 1,
+      "cuff_wear": 3,
+      "seam_split": 1,
+      "print_crack": 2
+    },
+    "byRegion": {
+      "collar": 1,
+      "cuffs": 3,
+      "armpit": 6,
+      "hem": 5,
+      "seams": 0,
+      "chest_print": 2
+    }
+  },
+  "sample": true,
+  "updatedAt": "2026-10-17T22:00:00Z"
+}

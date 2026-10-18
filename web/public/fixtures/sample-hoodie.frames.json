@@ -1,0 +1,70 @@
+{
+  "productId": "sample-hoodie",
+  "axis": "washes",
+  "stages": [
+    {
+      "t": 0,
+      "image": "/fixtures/products/sample-hoodie/flat.png",
+      "basedOn": []
+    },
+    {
+      "t": 6,
+      "image": "/fixtures/stills/sample-hoodie/6.png",
+      "basedOn": [
+        "c01",
+        "c02",
+        "c06"
+      ]
+    },
+    {
+      "t": 12,
+      "image": "/fixtures/stills/sample-hoodie/12.png",
+      "basedOn": [
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c06",
+        "c07",
+        "c13"
+      ]
+    },
+    {
+      "t": 20,
+      "image": "/fixtures/stills/sample-hoodie/20.png",
+      "basedOn": [
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c06",
+        "c07",
+        "c08",
+        "c10",
+        "c13",
+        "c14"
+      ]
+    },
+    {
+      "t": 30,
+      "image": "/fixtures/stills/sample-hoodie/30.png",
+      "basedOn": [
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c06",
+        "c07",
+        "c08",
+        "c09",
+        "c10",
+        "c11",
+        "c13",
+        "c14",
+        "c16"
+      ]
+    }
+  ],
+  "generated": true,
+  "label": "illustration"
+}
